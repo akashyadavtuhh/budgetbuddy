@@ -1,0 +1,11 @@
+export const ADD_EXPENSE = 'ADD_EXPENSE';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
+export const SET_BUDGET = 'SET_BUDGET';
+export const GET_BUDGET = 'GET_BUDGET';
+export const GET_EXPENSES = 'GET_EXPENSES';
+export const GET_EXPENSE = 'GET_EXPENSE';
+export const UPDATE_EXPENSE = 'UPDATE_EXPENSE';
+export const DELETE_EXPENSES = 'DELETE_EXPENSES';
+export const EXPENSES_ERROR = 'EXPENSES_ERROR';
+export const BUDGET_ERROR = 'BUDGET_ERROR';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
