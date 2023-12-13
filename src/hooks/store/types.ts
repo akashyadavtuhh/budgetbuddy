@@ -6,6 +6,8 @@ export type StateType = {
     id: number;
     name: string;
     cost: number;
+    timestamp: string;
+    description?: string;
   }[];
 };
 
