@@ -1,5 +1,4 @@
 import { Chart, registerables } from "chart.js";
-import { useEffect, useState } from "react";
 import { PolarArea } from "react-chartjs-2";
 
 Chart.register(...registerables);
@@ -55,7 +54,9 @@ function ExpenseCard({
   className,
 }: ExpenseCardProps) {
   return (
-    <div className={` stats  shadow-primary bg-opacity-10 shadow-inner m-4 ${className}`}>
+    <div
+      className={` stats  shadow-primary bg-opacity-10 shadow-inner m-4 ${className}`}
+    >
       <div className={`stat `}>
         <div className="stat-title">{title}</div>
         <div className={`stat-value`}>{content}</div>

@@ -1,11 +1,8 @@
-import { useState } from "react";
-import "./index.css";
 import { BottomNavigation, TopNavigation } from "./components/Navigation";
 import { Overview } from "./components/Overview";
+import "./index.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div>
       <TopNavigation />
