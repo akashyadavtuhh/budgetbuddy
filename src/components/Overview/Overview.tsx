@@ -55,11 +55,13 @@ function ExpenseCard({
   className,
 }: ExpenseCardProps) {
   return (
-    <div className={`stats shadow m-4 ${className}`}>
-      <div className={`stat`}>
+    <div className={` stats  shadow-primary bg-opacity-10 shadow-inner m-4 ${className}`}>
+      <div className={`stat `}>
         <div className="stat-title">{title}</div>
         <div className={`stat-value`}>{content}</div>
-        <div className="stat-desc  text-secondary text-base">{description}</div>
+        <div className="stat-desc text-sm break-words w-full whitespace-break-spaces text-justify text-opacity-50">
+          {description}
+        </div>
       </div>
     </div>
   );
@@ -69,11 +71,20 @@ function Overview() {
   return (
     <>
       <div className="flex flex-col">
-        <ExpenseCard
-          title="Income"
-          content="€ 1.000"
-          description="Last Month"
-        />
+        <div className="flex shadow w-auto">
+          <ExpenseCard
+            title="Budget"
+            content="600 €"
+            description="60% of Income"
+            className="min-w-fit"
+          />
+          <ExpenseCard
+            title="Income"
+            content="1.000 €"
+            description=" Income grows when you save !"
+            className="w-fit"
+          />
+        </div>
         <PolarArea
           className="scale-25"
           data={getUpdatedChartData()}
@@ -135,7 +146,11 @@ function Overview() {
         </div>
         <div className="m-4 flex flex-col">
           <div className="text-lg font-semibold">
-            Spending <sub className="text-primary text-opacity-50 text-xs"> March 2023</sub>
+            Spending{" "}
+            <sub className="text-primary text-opacity-50 text-xs">
+              {" "}
+              March 2023
+            </sub>
           </div>
           <div className="carousel carousel-vertical h-96 w-full  rounded-box">
             {Array.from(Array(10).keys()).map((_, index) => (
