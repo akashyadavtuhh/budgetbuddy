@@ -1,4 +1,12 @@
+import { useState } from "react";
+
+const systemTheme =
+  window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+
 function TopNavigation() {
+  const [theme, setTheme] = useState(systemTheme);
   return (
     <div className="navbar bg-base-100 flex justify-between">
       <div className="avatar ml-4">
@@ -11,12 +19,13 @@ function TopNavigation() {
         </span>
       </div>
 
-      <div className="navbar-end">
+      <div className="navbar-end pr-4">
         <label className="cursor-pointer grid place-items-center">
           <input
             type="checkbox"
-            value="dark"
+            value={theme === "dark" ? "light" : "dark"}
             className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
+            onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
           />
           <svg
             className="col-start-2 row-start-1 stroke-base-100 fill-base-100"
