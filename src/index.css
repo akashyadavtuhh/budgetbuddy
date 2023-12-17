@@ -6,3 +6,15 @@ html {
   text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
+:root {
+  --text-color: black;
+  --grid-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: rgba(255, 255, 255, 0.87);
+    --grid-color: rgba(255, 255, 255, 0.1);
+  }
+}

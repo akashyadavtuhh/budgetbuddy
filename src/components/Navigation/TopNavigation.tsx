@@ -2,8 +2,8 @@ function TopNavigation() {
   return (
     <div className="navbar bg-base-100 flex justify-between">
       <div className="avatar ml-4">
-        <div className="w-10 rounded-full ring ring-accent ring-offset-base-100 ring-offset-2">
-          <img src="https://media.licdn.com/dms/image/D5603AQEd-yrCp8q8Kg/profile-displayphoto-shrink_200_200/0/1698428735075?e=1708560000&v=beta&t=98WhHyU9haktDfftxaj3kJyMTZPBTe7XYTxPR4vQruc" />
+        <div className="w-10 rounded-full ring ring-primary ring-opacity-25 ring-offset-base-100 ring-offset-2">
+          <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Luna" />
         </div>
         <span className="pl-4">
           <a className="btn-ghost text-xs">Hey! Dein Handy</a>
