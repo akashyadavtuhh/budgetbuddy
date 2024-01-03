@@ -3,9 +3,9 @@ CREATE TABLE "Expense" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "amount" INTEGER NOT NULL,
     "title" TEXT NOT NULL,
-    "description" TEXT NOT NULL DEFAULT '',
+    "description" TEXT DEFAULT '',
     "timestamp" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL,
-    "iIA" BOOLEAN NOT NULL DEFAULT false
+    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" DATETIME NOT NULL,
+    "include_analytics" BOOLEAN DEFAULT false
 );

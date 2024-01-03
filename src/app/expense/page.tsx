@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ExpenseItem from "../components/Expense/Item";
 import { prisma } from "../db";
 
@@ -12,9 +13,12 @@ export default async function Expense() {
       <h1>Expense</h1>
       <ul>
         {expenses.map((expense) => (
-          <ExpenseItem key={expense.id} expense={expense} />
+          <ExpenseItem key={expense.id} {...expense} />
         ))}
       </ul>
+      <Link href="/expense/create" className="float-right m-2">
+        <p className="bg-purple-500 text-white p-2 rounded w-fit">Create</p>
+      </Link>
     </>
   );
 }

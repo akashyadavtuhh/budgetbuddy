@@ -1,5 +1,6 @@
 import { prisma } from "@/app/db";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 async function createExpense(data: FormData) {
   "use server";
@@ -18,10 +19,9 @@ async function createExpense(data: FormData) {
       },
     });
   } catch (error) {
-    console.log(error);
-    // send response with error message
     return { error };
   }
+  redirect("/expense");
 }
 
 export default function create() {

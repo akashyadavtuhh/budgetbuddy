@@ -16,6 +16,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <title>nBud</title>
+        <meta name="description" content="nBud " />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
