@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "./components/AuthProvider";
+import { isloggedInServer } from "../../utils/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,11 +11,12 @@ export const metadata: Metadata = {
   description: "nBud",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  await isloggedInServer();
   return (
     <html lang="en">
       <head>

@@ -13,6 +13,7 @@ export default function ExpenseItem({
   timestamp,
   title,
   updated_at,
+  user_id,
 }: Expense) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);

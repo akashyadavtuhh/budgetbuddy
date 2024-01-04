@@ -1,9 +1,41 @@
+import { authOptions } from "@/app/auth/[...nextauth]/route";
 import { prisma } from "@/app/db";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { isloggedInServer } from "../../../../utils/auth";
 
 async function createExpense(data: FormData) {
   "use server";
+  const session = await isloggedInServer();
+  let loggedInUserId = session.user?.email;
+  if (!session.user?.email) {
+    if (!session.user?.name) {
+      throw new Error("Invalid user");
+    }
+    const userId = (
+      await prisma.user.findFirst({
+        where: {
+          username: session.user.name?.toLowerCase()?.replace(/\s/g, ""),
+        },
+      })
+    )?.email;
+    if (!userId) {
+      const data = await prisma.user.create({
+        data: {
+          username: session.user.name?.toLowerCase()?.replace(/\s/g, ""),
+          email: `${session.user.name
+            ?.toLowerCase()
+            ?.replace(/\s/g, "")}@example.com`,
+          password: "password",
+        },
+      });
+      loggedInUserId = data.email;
+    } else {
+      loggedInUserId = userId;
+    }
+  }
+
   try {
     const title = data.get("title") as string;
     const amount = +(data.get("amount")?.valueOf() || 0) as number;
@@ -16,6 +48,11 @@ async function createExpense(data: FormData) {
         title,
         amount,
         description,
+        user: {
+          connect: {
+            email: loggedInUserId!,
+          },
+        },
       },
     });
   } catch (error) {
@@ -24,7 +61,7 @@ async function createExpense(data: FormData) {
   redirect("/expense");
 }
 
-export default function create() {
+export default async function create() {
   return (
     <>
       <h1 className="text-2xl font-bold mb-5">Create Expense</h1>
