@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ExpenseItem from "@/components/expense/Item";
-import { prisma } from "../db";
+import { prisma } from "../../db";
 
 function getExpenses() {
   return prisma.expense.findMany();

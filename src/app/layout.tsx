@@ -19,7 +19,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  await isloggedInServer();
   return (
     <html lang="en">
       <head>

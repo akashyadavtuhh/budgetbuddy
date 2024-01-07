@@ -1,9 +1,7 @@
-import { authOptions } from "@/app/auth/[...nextauth]/route";
 import { prisma } from "@/app/db";
-import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { isloggedInServer } from "../../../utils/auth";
+import { isloggedInServer } from "../../../../utils/auth";
 
 async function createExpense(data: FormData) {
   "use server";
