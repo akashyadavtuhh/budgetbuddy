@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ExpenseItem from "../components/Expense/Item";
+import ExpenseItem from "@/components/expense/Item";
 import { prisma } from "../db";
 
 function getExpenses() {

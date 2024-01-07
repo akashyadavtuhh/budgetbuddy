@@ -1,3 +1,3 @@
-export default function Page() {
+export default function Profile() {
   return <main>Hello</main>;
 }
