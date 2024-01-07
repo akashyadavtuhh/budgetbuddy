@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import AuthProvider from "./components/AuthProvider";
-import { isloggedInServer } from "../../utils/auth";
+import GlobalProvider from "@/components/GlobalProvider";
+import { isloggedInServer } from "@/utils/auth";
+import BottomNavigation, {
+  navOptions,
+} from "@/components/common/BottomNavigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,9 +32,12 @@ export default async function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <AuthProvider>
-        <body className={inter.className}>{children}</body>
-      </AuthProvider>
+      <body className={inter.className}>
+        <GlobalProvider>
+          {children}
+          <BottomNavigation options={navOptions} />
+        </GlobalProvider>
+      </body>
     </html>
   );
 }

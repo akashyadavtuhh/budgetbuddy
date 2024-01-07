@@ -1,4 +1,4 @@
-import { isloggedInServer } from "../../../utils/auth";
+import { isloggedInServer } from "@/utils/auth";
 
 export default async function Layout({
   children,
