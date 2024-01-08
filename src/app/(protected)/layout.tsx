@@ -8,10 +8,5 @@ export default async function Protected({
 }) {
   const session = await isloggedInServer();
   if (!session) return;
-  return (
-    <>
-      <h1>nBud</h1>
-      {children}
-    </>
-  );
+  return <main className="w-screen h-screen p-2">{children}</main>;
 }
