@@ -1,9 +1,7 @@
-import { authOptions } from "@/app/auth/[...nextauth]/route";
 import { prisma } from "@/app/db";
-import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { isloggedInServer } from "../../../utils/auth";
+import { isloggedInServer } from "../../../../utils/auth";
 
 async function createExpense(data: FormData) {
   "use server";
@@ -56,12 +54,14 @@ async function createExpense(data: FormData) {
       },
     });
   } catch (error) {
-    return { error };
+    return {
+      error,
+    };
   }
   redirect("/expense");
 }
 
-export default async function create() {
+export default async function Create() {
   return (
     <>
       <h1 className="text-2xl font-bold mb-5">Create Expense</h1>
@@ -108,12 +108,14 @@ export default async function create() {
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
           />
         </div>
-        <Link href=".." className="text-blue-500">
+        <Link href="/expense" className="text-blue-500">
           Back
         </Link>
         <button
           type="submit"
-          className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="w-full py-2 px-4 border border-transparent rounded-md 
+          shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none 
+          focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           Create Expense
         </button>

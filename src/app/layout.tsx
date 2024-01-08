@@ -1,11 +1,7 @@
+import GlobalProvider from "@/components/GlobalProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import GlobalProvider from "@/components/GlobalProvider";
-import { isloggedInServer } from "@/utils/auth";
-import BottomNavigation, {
-  navOptions,
-} from "@/components/common/BottomNavigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +15,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  await isloggedInServer();
   return (
     <html lang="en">
       <head>
@@ -33,10 +28,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <GlobalProvider>
-          {children}
-          <BottomNavigation options={navOptions} />
-        </GlobalProvider>
+        <GlobalProvider>{children}</GlobalProvider>
       </body>
     </html>
   );
