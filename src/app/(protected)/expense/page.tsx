@@ -29,7 +29,7 @@ export default function Expense() {
       )) as Expense[];
       return data;
     },
-    staleTime: Infinity,
+    staleTime: 1000 * 60 * 60,
   });
   const { mutate, isPending: isDeletePending } = useMutation({
     mutationKey: ["deleteExpense"],
@@ -47,13 +47,13 @@ export default function Expense() {
   if (isLoading) return <>Loading...</>;
   return (
     <span>
-      <h1 className="text-2xl flex justify-between items-center">
+      <h1 className="text-2xl flex justify-between items-center mb-4">
         Spent
-        <Link href="/expense/create" className="float-right m-2">
-          <Button isIconOnly color="primary" size="md" className="rounded-full">
+        <Button isIconOnly color="primary" size="md" className="rounded-full">
+          <Link href="/expense/create" className="float-right m-2" passHref>
             <i className="fas fa-plus"></i>
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </h1>
       <ul className="flex flex-col space-y-2">
         {expenses?.map((expense) => (

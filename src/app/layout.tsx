@@ -29,6 +29,7 @@ export default async function RootLayout({
       </head>
       <body className={inter.className}>
         <GlobalProvider>{children}</GlobalProvider>
+        <div id="modal-root"></div>
       </body>
     </html>
   );

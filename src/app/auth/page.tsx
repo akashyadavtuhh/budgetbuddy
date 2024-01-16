@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 
 export default function App() {
   const [selected, setSelected] = React.useState<string | number>("login");
-  const router = useRouter();
 
   return (
     <div className="flex flex-col w-screen h-screen justify-center p-2">
