@@ -12,9 +12,9 @@ export default async function addExpense(
     throw new Error("not authenticated");
   }
   if (req.method === "POST") {
-    console.log(req.body);
+    console.log(typeof req.body);
     await prisma.$transaction([
-      prisma.expense.create({ data: JSON.parse(req.body.expenses) }),
+      prisma.expense.createMany({ data: JSON.parse(req.body) }),
     ]);
     res.status(200).json({ success: true });
     // const expense = await prisma.expense.create({
