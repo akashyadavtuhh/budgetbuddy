@@ -6,11 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
-
-// default currency and thier symbols
 
 model Expense {
   id                String           @id @default(uuid())
@@ -44,7 +42,7 @@ model User {
 model ExpenseCategory {
   id         String    @id @default(uuid())
   name       String
-  type       String
+  type       String    @default("FOOD")
   created_at DateTime  @default(now())
   updated_at DateTime  @updatedAt
   Expense    Expense[]

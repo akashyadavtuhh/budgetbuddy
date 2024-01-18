@@ -1,8 +1,8 @@
 "use client";
+import { Button, Input, Link, Tab, Tabs } from "@nextui-org/react";
+import { signIn } from "next-auth/react";
 import React from "react";
-import { Tabs, Tab, Input, Link, Button } from "@nextui-org/react";
-import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+
 
 export default function App() {
   const [selected, setSelected] = React.useState<string | number>("login");
